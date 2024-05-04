@@ -1,4 +1,4 @@
-# Pure PHP
+# Micro PHP
 
 Little project to build a simple MCV back-end.
 
