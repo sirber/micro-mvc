@@ -1,4 +1,4 @@
-# Micro PHP
+# Micro MVC for PHP
 
 Little project to build a simple MCV back-end.
 
