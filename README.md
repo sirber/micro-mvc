@@ -24,10 +24,18 @@ Little project to build a simple MCV back-end, for PHP 8!
 
 ## Development
 
-To start the development server, run: make dev
-It will build the docker image and start the apache server.
+The code comes with a development server. It includes a MariaDB database. 
 
-Then, open http://localhost in your favorite browser.
+Follow these steps:
+- Create a `.env` file similar to `.env.sample`.
+- Run: `make dev`. It will build the docker image and start the apache server.
+- Open http://localhost in your favorite browser.
+
+### Database Migrations
+
+To run the database migrations, make sure the development server is running.
+
+Then, run `make migration-run`.
 
 ## Production
 
