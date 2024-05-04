@@ -1,0 +1,12 @@
+{
+  "name": "sirber/pure",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "private/"
+    }
+  },
+  "require": {
+    "twig/twig": "^3.9"
+  }
+}
