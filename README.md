@@ -47,7 +47,6 @@ The code comes with a development server. It includes a MariaDB database.
 
 Follow these steps:
 
-- Create a `.env` file similar to `.env.sample`.
 - Run: `make dev`. It will build the docker image and start the apache server.
 - Open http://localhost in your favorite browser.
 

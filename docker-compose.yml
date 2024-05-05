@@ -3,8 +3,10 @@ services:
     build: .
     container_name: micro-mvc
     restart: unless-stopped
-    env_file:
-      - .env
+    environment:
+      - PDO_DB_STRING=mysql:host=mysql;dbname=test
+      - PDO_DB_USER=test
+      - PDO_DB_PASS=test
     volumes:
       - ./src:/var/www/html/
     ports:
