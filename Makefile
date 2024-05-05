@@ -6,8 +6,8 @@ build:
 	@cd src && composer dump-autoload
 
 migration-run:
-	@CONTAINER_ID=$$(docker ps -qf "name=pure-apache-1") && \
-  docker exec $$CONTAINER_ID sh -c "cd ./private/ && php migration.php"
+	@CONTAINER_ID=$$(docker ps -qf "name=micro-mvc") && \
+  docker exec $$CONTAINER_ID sh -c "php migration.php"
 	
 dev: build
 	@docker build -t micro-mvc:dev ./

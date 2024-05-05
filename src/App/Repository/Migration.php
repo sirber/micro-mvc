@@ -26,7 +26,7 @@ class Migration extends Database
 
   public function migrate()
   {
-    $pattern = __DIR__ . '/../migrations/*.sql';
+    $pattern = __DIR__ . '/../../migrations/*.sql';
     $files = glob($pattern);
 
     foreach ($files as $file) {
