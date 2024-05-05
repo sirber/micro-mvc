@@ -8,7 +8,7 @@ class Template
 
   public function __construct()
   {
-    $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates/');
+    $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../../templates/');
     $this->twig = new \Twig\Environment($loader);
   }
 
