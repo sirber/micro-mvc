@@ -7,27 +7,30 @@ use App\Controllers\UserController;
 
 $request = $_SERVER["REQUEST_URI"];
 $parts = explode('/', $request);
-$endpoint = $parts[1];
+$endpoint = '/' . $parts[1];
 $id = isset($parts[2]) ? $parts[2] : null;
 
-switch ('/' . $endpoint) {
-  case '/':
-    $c = new HomeController();
-    echo $c->getHome();
-    break;
+$routeFound = false;
+foreach ($routes as $route) {
+  if ($route['endpoint'] == $endpoint) {
+    try {
+      $routeFound = true;
+      $controller = new $route['controller']();
 
-  case '/users':
-    $c = new UserController();
+      $args = array();
+      if ($id) {
+        $args['id'] = $id;
+      }
 
-    if ($id) {
-      echo "users id: " . $id;
-    } else {
-      echo $c->getUsers();
+      echo call_user_func_array([$controller, $route['function']], $args);
+    } catch (Exception $e) {
+      header("HTTP/1.0 500 Internal Server Error");
+      die($e);
     }
-    break;
+  }
+}
 
-  default:
-    header("HTTP/1.0 404 Not Found");
-    echo "not found!";
-    break;
+if (!$routeFound) {
+  header("HTTP/1.0 404 Not Found");
+  echo "not found!";
 }

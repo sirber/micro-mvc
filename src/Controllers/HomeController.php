@@ -2,18 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Facades\Template;
-
-class HomeController
+class HomeController extends Controller
 {
-  private $template;
-
-  public function __construct()
-  {
-    $this->template = new Template();
-  }
-
-  function getHome()
+  public function getHome()
   {
     return $this->template->render('home.html');
   }
