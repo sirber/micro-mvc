@@ -3,17 +3,16 @@
 namespace App\Controllers;
 
 use App\Repository\UserRepository;
-use App\Facades\Template;
 
-class UserController
+class UserController extends Controller
 {
   private $userRepository;
-  private $template;
 
   public function __construct()
   {
+    parent::__construct();
+
     $this->userRepository = new UserRepository();
-    $this->template = new Template();
   }
 
   function getUsers()
