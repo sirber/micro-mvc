@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
 
-use App\Facade\Template;
+use App\Facades\Template;
 
 class HomeController
 {

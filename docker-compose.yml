@@ -1,6 +1,7 @@
 services:
-  apache:
+  micro-mvc:
     build: .
+    container_name: micro-mvc
     restart: unless-stopped
     env_file:
       - .env
@@ -11,6 +12,7 @@ services:
 
   mysql:
     image: mariadb:11.3
+    container_name: database
     restart: unless-stopped
     environment:
       MARIADB_ROOT_PASSWORD: root

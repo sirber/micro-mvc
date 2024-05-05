@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__ . '/../private/bootstrap.php';
+require_once __DIR__ . '/../bootstrap.php';
 
-use App\Controller\HomeController;
-use App\Controller\UserController;
+use App\Controllers\HomeController;
+use App\Controllers\UserController;
 
 $request = $_SERVER["REQUEST_URI"];
 $parts = explode('/', $request);

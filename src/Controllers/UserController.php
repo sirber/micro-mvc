@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Repository\UserRepository;
-use App\Facade\Template;
+use App\Facades\Template;
 
 class UserController
 {

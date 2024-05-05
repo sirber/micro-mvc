@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Facade;
+namespace App\Facades;
 
 class Session
 {
