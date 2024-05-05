@@ -22,6 +22,21 @@ Little project to build a simple MCV back-end, for PHP 8!
 
 # Usage
 
+## Routing
+
+Routes are stored in `src/routes.php`. They will be automatically parsed by the `index`.
+
+Exemple:
+```php
+$routes = array(
+  array(
+    'endpoint' => '/',
+    'controller' => HomeController::class,
+    'function' => 'getHome'
+  ),
+);
+```
+
 ## Development
 
 The code comes with a development server. It includes a MariaDB database.
