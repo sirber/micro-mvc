@@ -1,10 +1,10 @@
 services:
-  micro-mvc:
-    build: .
+  mvc:
+    image: micro-mvc:dev
     container_name: micro-mvc
     restart: unless-stopped
     environment:
-      - PDO_DB_STRING=mysql:host=mysql;dbname=test
+      - PDO_DB_STRING=mysql:host=database;dbname=test
       - PDO_DB_USER=test
       - PDO_DB_PASS=test
     volumes:
@@ -12,7 +12,7 @@ services:
     ports:
       - 80:80
 
-  mysql:
+  database:
     image: mariadb:11.3
     container_name: database
     restart: unless-stopped
