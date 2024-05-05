@@ -20,6 +20,10 @@ Little project to build a simple MCV back-end, for PHP 8!
       - Database
     - Template
 
+## Performance
+
+On my i5-3380M CPU, I get an average of 40ms per page.
+
 # Usage
 
 ## Routing
