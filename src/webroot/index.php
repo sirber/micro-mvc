@@ -1,29 +1,31 @@
 <?php
 
+use App\Facades\Request;
+
 require_once __DIR__ . '/../bootstrap.php';
 
-$request = $_SERVER["REQUEST_URI"];
-$parts = explode('/', $request);
+$request = new Request();
+
+$uri = $request->getUri();
+$parts = explode('/', $uri);
 $endpoint = '/' . $parts[1];
-$id = isset($parts[2]) ? $parts[2] : null;
 
 $routeFound = false;
 foreach ($routes as $route) {
-  if ($route['endpoint'] == $endpoint) {
-    try {
-      $routeFound = true;
-      $controller = new $route['controller']();
+  if ($route['endpoint'] != $endpoint) {
+    continue;
+  }
 
-      $args = array();
-      if ($id) {
-        $args['id'] = $id;
-      }
+  try {
+    $routeFound = true;
+    $controller = new $route['controller']();
 
-      echo call_user_func_array([$controller, $route['function']], $args);
-    } catch (Exception $e) {
-      header("HTTP/1.0 500 Internal Server Error");
-      die($e);
-    }
+    $args = array($request);
+
+    echo call_user_func_array([$controller, $route['function']], $args);
+  } catch (Exception $e) {
+    header("HTTP/1.0 500 Internal Server Error");
+    die($e);
   }
 }
 

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Facades\Request;
 use App\Repository\UserRepository;
 
 class UserController extends Controller
@@ -15,7 +16,7 @@ class UserController extends Controller
     $this->userRepository = new UserRepository();
   }
 
-  function getUsers()
+  function getUsers(Request $request)
   {
     $users = $this->userRepository->getUsers();
 
