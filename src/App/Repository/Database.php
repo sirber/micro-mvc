@@ -12,6 +12,7 @@ abstract class Database
   {
     try {
       $this->db = new \PDO($_ENV['PDO_DB_STRING'], $_ENV['PDO_DB_USER'], $_ENV['PDO_DB_PASS']);
+      $this->db->exec("SET time_zone = '+00:00'"); // Set the time zone to UTC
     } catch (PDOException $e) {
       die($e->getMessage());
     }
