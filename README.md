@@ -41,6 +41,8 @@ $routes = array(
 );
 ```
 
+`HomeController->getHome()` will receive as a first argument a `App\Facades\Request $request`. 
+
 ## Development
 
 The code comes with a development server. It includes a MariaDB database.
