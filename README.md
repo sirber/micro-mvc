@@ -5,20 +5,20 @@ Little project to build a simple MCV back-end, for PHP 8!
 ## Features
 
 - Routing
-- Database (pdo)
+- Database 
+  - Uses PDO
+  - Returns data in camelCase
   - Migrations
   - Repository pattern
-- Template engine (twig)
+- Template engine using Twig
 - PSR-4 auto loading
 
 ## Data flow
 
-- Index
-  - Router
-  - Controller
-    - Repository
-      - Database
-    - Template
+- Router
+- Controller
+- Repository
+- Database
 
 ## Performance
 

@@ -21,7 +21,7 @@ abstract class Database
   {
     $stmt = $this->db->query($query);
 
-    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    return $this->fetchAll($stmt);
   }
 
   public function preparedQuery(string $query, array $params = []): array
@@ -29,6 +29,28 @@ abstract class Database
     $stmt = $this->db->prepare($query);
     $stmt->execute($params);
 
-    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    return $this->fetchAll($stmt);
+  }
+
+  private function fetchAll(\PDOStatement $stmt): array
+  {
+    $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    return $this->resultToCamel($data);
+  }
+
+  private function resultToCamel(array $data): array
+  {
+    $camelCaseData = [];
+    foreach ($data as $key => $value) {
+      $camelCaseData[$this->snakeToCamel($key)] = $value;
+    }
+
+    return $camelCaseData;
+  }
+
+  private function snakeToCamel(string $snake_case_string): string
+  {
+    return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $snake_case_string))));
   }
 }
