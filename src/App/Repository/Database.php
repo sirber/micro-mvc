@@ -39,7 +39,7 @@ abstract class Database
     return $this->resultToCamel($data);
   }
 
-  private function resultToCamel(array $data): array
+  private function resultToCamel(array &$data): array
   {
     $camelCaseData = [];
     foreach ($data as $key => $value) {
