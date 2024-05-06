@@ -52,7 +52,7 @@ Follow these steps:
 
 ### Database Migrations
 
-To create a new migration, add a new file like `001_my-migration.sql` into `src/private/migrations`.
+To create a new migration, add a new file like `001_my-migration.sql` into `src/database/migrations`.
 
 To run the database migrations, make sure the development server is running. Then, run `make migration-run`.
 
