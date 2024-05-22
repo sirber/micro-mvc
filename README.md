@@ -5,9 +5,8 @@ Little project to build a simple MCV back-end, for PHP 8!
 ## Features
 
 - Routing
-- Database 
+- Database
   - Uses PDO
-  - Returns data in camelCase
   - Migrations
   - Repository pattern
 - Template engine using Twig
@@ -31,6 +30,7 @@ On my i5-3380M CPU, I get an average of 40ms per page.
 Routes are stored in `src/routes.php`. They will be automatically parsed by the `index`.
 
 Exemple:
+
 ```php
 $routes = array(
   array(
@@ -41,7 +41,7 @@ $routes = array(
 );
 ```
 
-`HomeController->getHome()` will receive as a first argument a `App\Facades\Request $request`. 
+`HomeController->getHome()` will receive as a first argument a `App\Facades\Request $request`.
 
 ## Development
 
