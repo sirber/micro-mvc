@@ -6,7 +6,7 @@ use App\Repository\Seeding;
 
 echo "Running seeds...\n\n";
 
-$migration = new Seeding();
-$migration->seed();
+$seeding = new Seeding();
+$seeding->seed();
 
 echo "Script completed.\n";
