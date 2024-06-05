@@ -2,7 +2,7 @@
 
 use App\Facades\Request;
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../src/bootstrap.php';
 
 $request = new Request();
 

@@ -5,8 +5,8 @@ help: ## Help
 
 build: ## Build
 	@docker compose build
-	@cd src && composer install
-	@cd src && composer dump-autoload
+	@composer install
+	@composer dump-autoload
 
 migrate: dev ## Run migrations
 	@CONTAINER_ID=$$(docker ps -qf "name=micro-mvc") && \
@@ -14,7 +14,7 @@ migrate: dev ## Run migrations
 
 seed: migrate ## Run seeds
 	@CONTAINER_ID=$$(docker ps -qf "name=micro-mvc") && \
-  docker exec $$CONTAINER_ID sh -c "php ./scripts/seed.php"
+  		docker exec $$CONTAINER_ID sh -c "php ./scripts/seed.php"
 	
 dev: build ## Start dev environment
 	@docker build -t micro-mvc:dev ./
