@@ -23,6 +23,8 @@ foreach ($routes as $route) {
     $args = array($request);
 
     echo call_user_func_array([$controller, $route['function']], $args);
+
+    break;
   } catch (Exception $e) {
     header("HTTP/1.0 500 Internal Server Error");
     die($e);
